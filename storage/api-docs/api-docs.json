@@ -1,0 +1,102 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation",
+        "contact": {
+            "email": "artem.trufanov.98@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/auth/login": {
+            "post": {
+                "tags": [
+                    "Authorization"
+                ],
+                "summary": "Account login",
+                "operationId": "be2e78e5f93182d4403f839cc516d312",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthLoginRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/register": {
+            "post": {
+                "tags": [
+                    "Authorization"
+                ],
+                "summary": "Account registration",
+                "operationId": "d43ecdfd17aca209ecd9b0a8b370e2c0",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthRegisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AuthLoginRequest": {
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "example": "typical@email.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "Qwerty!12345"
+                    }
+                },
+                "type": "object"
+            },
+            "AuthRegisterRequest": {
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "Bob"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "typical@email.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "example": "Qwerty!12345"
+                    },
+                    "password_confirmation": {
+                        "type": "string",
+                        "example": "Qwerty!12345"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
