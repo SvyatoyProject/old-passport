@@ -16,5 +16,9 @@ return [
     'failed' => 'These credentials do not match our records.',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-
+    'verify' => [
+        'already' => 'Email verified already success!',
+        'success' => 'Success verified email!',
+        'sent' => 'Verification link sent!',
+    ]
 ];
