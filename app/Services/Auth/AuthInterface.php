@@ -27,4 +27,24 @@ interface AuthInterface
      * @link AuthService::register()
      */
     public function register(array $data): bool;
+
+    /**
+     * Verify email
+     *
+     * @param int $id
+     * @return bool
+     * @throws ApiException
+     * @link AuthService::verify()
+     */
+    public function verify(int $id): bool;
+
+    /**
+     * Resend link to verify email
+     *
+     * @param string $email
+     * @return bool
+     * @throws ApiException
+     * @link AuthService::resend()
+     */
+    public function resend(string $email): bool;
 }

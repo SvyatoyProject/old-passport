@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 
 /**
@@ -49,8 +51,8 @@ class AuthRegisterRequest extends FormRequest
             ->uncompromised();
 
         return [
-            'name' => 'required|max:255',
-            'email' => 'required|email|unique:users',
+            'name' => ['required', 'max:255'],
+            'email' => ['required', 'email', Rule::unique(User::class, 'email')],
             'password' => ['required', 'string', 'confirmed', $password]
         ];
     }

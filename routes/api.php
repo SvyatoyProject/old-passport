@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('locale')->group(function () {
-    // Authorization | Авторизация
+    // Authorization
     Route::prefix('auth')
         ->group(base_path('routes/groups/auth.php'));
 });
