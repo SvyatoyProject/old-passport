@@ -3,7 +3,7 @@
 ### Install:
 
 1. `composer install`
-2. Create `.env` config in the main directory, or you can copy `.env.example` and put your DB settings
+2. Create `.env` config in the main directory, or you can copy `.env.example` and put your settings
 3. `php artisan key:generate`
 4. `php artisan migrate`
 5. `php artisan passport:install`
