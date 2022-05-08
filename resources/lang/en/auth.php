@@ -20,5 +20,8 @@ return [
         'already' => 'Email verified already success!',
         'success' => 'Success verified email!',
         'sent' => 'Verification link sent!',
+    ],
+    'email' => [
+        'register' => 'Verify email'
     ]
 ];

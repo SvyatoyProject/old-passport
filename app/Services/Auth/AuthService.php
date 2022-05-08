@@ -3,8 +3,8 @@
 namespace App\Services\Auth;
 
 use App\Exceptions\ApiException;
+use App\Jobs\AuthJob;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Events\Verified;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -37,7 +37,7 @@ class AuthService implements AuthInterface
         $data['password'] = bcrypt($data['password']);
         $user = User::create($data);
 
-        event(new Registered($user));
+        AuthJob::dispatch($user);
 
         return true;
     }
@@ -74,7 +74,7 @@ class AuthService implements AuthInterface
         if ($user->hasVerifiedEmail()) {
             throw new ApiException(trans('auth.verify.already'), Response::HTTP_OK);
         }
-        $user->sendEmailVerificationNotification();
+        AuthJob::dispatch($user);
 
         return true;
     }
